@@ -588,4 +588,71 @@ contract mapping1
 3.  No gas 
 4.  Like a computer RAM.  
 
-20. 
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.5.0 < 0.9.0;
+
+contract State
+{
+    string[] public student=['Ravi','Rita','Aman'];
+
+    function mem() public view
+    {
+        string[] memory s1=student;
+        s1[0]='Akash';
+    }
+    function sto() public 
+    {
+        string[] storage s1=student;
+        s1[0]='Akash';
+    }
+}
+```
+
+20. Global variables:
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.5.0 < 0.9.0;
+
+contract State
+{
+    function getter() public view returns(uint block_no,uint timestamp,address msgSender)
+    {
+        return (block.number,block.timestamp,msg.sender);
+    }
+}
+
+//  Output:
+/*
+    0:
+    uint256: block_no 35
+    1:
+    uint256: timestamp 1689141399
+    2:
+    address: msgSender 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
+*/
+```
+Some other globasl variables are [here](https://www.geeksforgeeks.org/solidity-global-variables/).
+
+21. Payment:
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity >0.5.0 < 0.9.0;
+
+contract pay
+{
+    address payable user=payable(0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2);
+    function payEther() public payable 
+    {
+
+    }   
+    function getBalance() public view returns(uint) 
+    {
+        return address(this).balance;
+    }
+    function sendEtherAccount() public 
+    {
+        user.transfer(1 ether);
+    }
+}
+```

@@ -7,25 +7,29 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "getter",
+				"name": "getBalance",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "block_no",
+						"name": "",
 						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "timestamp",
-						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "msgSender",
-						"type": "address"
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "payEther",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "sendEtherAccount",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -42,7 +46,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"important/state.sol": "State"
+			"important/pay.sol": "pay"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -56,12 +60,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"important/state.sol": {
-			"keccak256": "0x41b7f064a5c77cebec5d570ec41414ca2b72aa68d716d47a2dd890e4b62d858a",
+		"important/pay.sol": {
+			"keccak256": "0x9a2327c5d1b098ebf5911774e9652f53c2909f057b37f14252866bc8b5b0ab54",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a6734a78f25891ad0cff28a49fad17bff0b90d3b4be064d6970b81496f24c676",
-				"dweb:/ipfs/QmTobBCiA1rZPi3edwRppTaLhtQxt8BMPzhWt18auNi354"
+				"bzz-raw://5fccecdc365b9d2f591cfdebd5552f21f9d993dc308ff6f9fd23608dc196c8ea",
+				"dweb:/ipfs/QmcCyboFZo2veWx9zxWh3S96amiyzmu7aGYnZmUaXWvdKx"
 			]
 		}
 	},
