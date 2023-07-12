@@ -428,4 +428,151 @@ contract condition{
 }
 ```
 
-16.
+16. Structure:
+Eg1:
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity >0.5.0 < 0.9;
+
+struct Student{
+    uint roll;
+    string name;
+}
+
+contract Demo{
+    Student public s1;
+    constructor(uint _roll,string memory _name)
+    {
+        s1.roll=_roll;    
+        s1.name=_name;
+    }
+
+}
+```
+
+Wg2:
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity >0.5.0 < 0.9;
+
+struct Student{
+    uint roll;
+    string name;
+}
+
+contract Demo{
+    Student public s1;
+    constructor(uint _roll,string memory _name)
+    {
+        s1.roll=_roll;    
+        s1.name=_name;
+    }
+
+    function change(uint _roll,string memory _name) public
+    {
+        Student memory new_student=Student({
+            roll:_roll,
+            name:_name
+        });
+
+        s1=new_student;
+    }
+}
+```
+
+17. Enum:
+
+Eg1:
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity >0.5.0 < 0.9.0;
+
+contract enum1
+{
+    enum user{allowed,not_allowed,wait}
+
+    user public u1=user.allowed;
+    user public u2=user.not_allowed;
+    user public u3=user.wait;
+}
+```
+
+Eg2:
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity >0.5.0 < 0.9.0;
+
+contract enum1
+{
+    enum user{allowed,not_allowed,wait}
+
+    user public u1=user.allowed;
+    //  user public u2=user.not_allowed;
+    //  user public u3=user.wait;
+
+    uint public lottery=1000;
+    function owner() public {
+        if(u1==user.allowed)
+        {
+            lottery--;
+        }
+        if(lottery == 0)
+            u1=user.not_allowed;
+    }
+
+    function changeOwner() public{
+        if(u1==user.allowed)
+            u1=user.not_allowed;
+        else
+            u1=user.allowed;
+    }
+}
+```
+
+18. Mapping:
+Eg1:
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity >0.5.0 < 0.9.0;
+
+contract mapping1
+{
+    mapping(uint=> string) public roll_no;
+
+    function setter(uint keys,string memory value) public 
+    {
+        roll_no[keys]=value;
+    }
+}
+```
+
+Eg2:
+``solidity
+// SPDX-License-Identifier: MIT
+pragma solidity >0.5.0 < 0.9.0;
+
+contract mapping1
+{
+    struct Student{
+        string name;
+        uint class;
+    }
+    
+    mapping(uint=> Student) public data;
+
+    function setter(uint _roll,uint _class,string memory _name) public 
+    {
+        data[_roll]= Student(_name,_class);
+    }
+}
+```
+
+## Notes:
+>   The key cannot be types mapping,dynamic 
+>   array, enum and struct.
+>   The values can be of any type.
+>   Mappings are always stored irrespective of
+>   whether they are declared in contract storage or not.
+
+19. Storage VS memory
+![SVSM](./important/StoraageVsMemorySolidity.png)
