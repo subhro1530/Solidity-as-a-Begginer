@@ -575,4 +575,17 @@ contract mapping1
 >   whether they are declared in contract storage or not.
 
 19. Storage VS memory
-![SVSM](./important/StoraageVsMemorySolidity.png)
+__________________________________________
+|   Storage     |       memory            |
+|_______________|_________________________|
+|Holds state    |Holds local variables de-|
+|variables.     |fined inside functions if|
+|               |they are reference types.|
+|_______________|_________________________|
+|Persistent     |Non-persistent.          |
+|_______________|_________________________|
+|Cost gas       |No gas                   |
+|_______________|_________________________|
+|Like a computer|Like a computer RAM.     |
+|HDD.           |                         |
+|_______________|_________________________|
