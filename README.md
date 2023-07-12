@@ -574,18 +574,18 @@ contract mapping1
 >   Mappings are always stored irrespective of
 >   whether they are declared in contract storage or not.
 
-19. Storage VS memory
-__________________________________________
-|   Storage     |       memory            |
-|_______________|_________________________|
-|Holds state    |Holds local variables de-|
-|variables.     |fined inside functions if|
-|               |they are reference types.|
-|_______________|_________________________|
-|Persistent     |Non-persistent.          |
-|_______________|_________________________|
-|Cost gas       |No gas                   |
-|_______________|_________________________|
-|Like a computer|Like a computer RAM.     |
-|HDD.           |                         |
-|_______________|_________________________|
+19. Storage VS memory:
+
+### Storage   
+1.  Holds state variables.
+2.  Persistent 
+3.  Cost gas 
+4.  Like a computer HDD.    
+
+### memory
+1.  Holds local variables defined inside functions if they are reference types.
+2.  Non-persistent.
+3.  No gas 
+4.  Like a computer RAM.  
+
+20. 
